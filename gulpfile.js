@@ -47,7 +47,6 @@ gulp.task('sass', function () {
 
 
 //--------------------------------------------Compile CSS task----------------------------------------------------------
-
 gulp.task('css', ['sass'], function () {
   return gulp.src([
     path.npm + 'normalize.css/normalize.css',
@@ -78,7 +77,7 @@ gulp.task('html', function () {
 //-----------------------------------------------Build javascript task--------------------------------------------------
 gulp.task('js', function () {
   return gulp.src([
-    path.npm + 'jquery/dist/jquery.js',
+    // path.npm + 'jquery/dist/jquery.js',
     'src/scripts/**/*.js'
   ])
 
