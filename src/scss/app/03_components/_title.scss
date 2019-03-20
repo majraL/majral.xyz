@@ -1,0 +1,22 @@
+// Titles
+.ttl {
+  margin: 0;
+
+  &-h1 {
+    @include font-size(54);
+  }
+
+  &-h2 {
+    @include font-size(32);
+
+    @include tabletDown {
+      @include font-size(25);
+    }
+  }
+
+  &-h4 {
+    @include font-size(18);
+    font-family: $font-weight-extraBold;
+    line-height: 24px;
+  }
+}

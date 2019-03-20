@@ -1,0 +1,42 @@
+<!--Load Main HTML Layout-->
+{% extends "src/html/app/base.html" %}
+
+<!--Define Site Name-->
+{% set siteName = 'majraL.xyz' %}
+<!-- (should stay the same on all pages) -->
+
+<!--Define Main Schema-->
+{% set schemaType = 'Article' %}
+
+<!--Define OGP type-->
+{% set opgType = 'article' %}
+
+<!--Define Twitter type and handles-->
+{% set twitterCardType = 'product' %}
+{% set twitterNameAuthor = '@author_handle' %}
+{% set twitterSite = '@site_handle' %}
+
+<!--Define Page Details-->
+{% set pageTitle = 'majraL' %}
+{% set pageTitleName = 'majraL' %}
+{% set pageDescription = 'aimo daj aimo' %}
+{% set pageUrl = 'http://www.example.com/' %}
+{% set pageImage = '../media/ogp.png' %}
+
+
+<!--Define body class-->
+{% set bodyClass = 'homepage' %}
+
+<!--Main Content-->
+{% block content %}
+
+<main>
+
+  <img class="img furešta" src="/media/furešta.jpg" alt="furešta">
+  <a class="link blob" href="https://www.github.com/majral">
+    <img class="img marmun" src="/media/marmun.png" alt="marmun">
+  </a>
+
+</main>
+
+{% endblock %}

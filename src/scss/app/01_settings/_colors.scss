@@ -1,0 +1,23 @@
+// Neutral colors
+$white: #ffffff;
+$black: #000000;
+
+// Brand Primary
+$brand-primary: #F5BC47;
+
+// Brand States
+$brand-active: $brand-primary;
+$brand-accented: #5681BE;
+$brand-focused: #5681BE;
+$brand-success: #72B12E;
+$brand-warning: #E2C94B;
+$brand-danger: #C12D3F;
+
+
+// Text colors
+$color-text-neutral: #1C1C1C;
+$color-text-neutral-light: #2D2D2D;
+$color-headings-neutral: darken($color-text-neutral, 16.86%);
+
+// Assets
+$asset-separator-light: #E6E6E6;

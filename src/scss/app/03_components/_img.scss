@@ -1,0 +1,17 @@
+.img {
+  display: block;
+  width: 100%;
+
+  &.furešta {
+    width: 100vw;
+    height: 100vh;
+
+    @include tabletPlusDown {
+      object-fit: cover;
+    }
+  }
+
+  &.marmun {
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,70 @@
+// Buttons
+
+// Global settings
+$btn-padding-y: .6875rem;
+$btn-padding-x: 1rem;
+$btn-border-radius: 4px;
+$btn-font-size: 18px;
+$btn-font-weight: $font-weight-bold;
+
+// Primary button settings
+$btn-primary-bg: $brand-primary;
+$btn-primary-bg-hover: darken($btn-primary-bg, 10%);
+
+$btn-primary-color: $white;
+$btn-primary-color-hover: $btn-primary-color;
+
+$btn-primary-border-width: 0;
+$btn-primary-border-width-hover: $btn-primary-border-width;
+$btn-primary-border-style: solid;
+$btn-primary-border-style-hover: $btn-primary-border-style;
+$btn-primary-border-color: $white;
+$btn-primary-border-color-hover: darken($btn-primary-border-color, 10%);
+
+.btn {
+  @include transition($time: 175ms);
+  display: inline-flex;
+  justify-content: center;
+  border-radius: $btn-border-radius;
+  padding: $btn-padding-y $btn-padding-x;
+  font-size: $btn-font-size;
+  font-family: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-touch-callout: none;
+  box-shadow: 0 6px 8px 2px rgba(205,205,205, .50);
+
+  &, &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  @include print {
+    display: none;
+  }
+
+  @include tabletDown {
+    width: 100%;
+  }
+
+  &-primary {
+    background-color: $btn-primary-bg;
+    color: $btn-primary-color;
+    border-width: $btn-primary-border-width;
+    border-style: $btn-primary-border-style;
+    border-color: $btn-primary-border-color;
+
+    &:hover {
+      background-color: $btn-primary-bg-hover;
+      color: $btn-primary-color-hover;
+      border-color: $btn-primary-border-color-hover;
+    }
+
+  }
+
+}
+
+button.btn:hover {
+  cursor: pointer;
+}

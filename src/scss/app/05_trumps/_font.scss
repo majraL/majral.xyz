@@ -1,0 +1,13 @@
+$font-sizes-list: 16, 20, 26;
+
+@each $size in $font-sizes-list {
+
+  .f-#{$size} {
+    @include font-size($size);
+  }
+
+}
+
+.color-prim {
+  color: $brand-primary;
+}

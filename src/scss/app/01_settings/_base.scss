@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+html, body {
+  font-family: $font-family-base;
+  font-size: $body-font-size;
+  line-height: $line-height-default;
+  letter-spacing: $letter-spacing-default;
+  background-color: #ffc107;
+  color: $color-text-neutral;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  font-size: 0;
+
+  > li {
+    font-size: 1rem;
+  }
+
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+hr {
+  border-color: #E3E3E3;
+  opacity: .3;
+}
+
+main {
+  position: relative;
+}

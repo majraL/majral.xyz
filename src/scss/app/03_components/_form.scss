@@ -1,0 +1,83 @@
+// Forms
+
+// Group
+$input-group-margin-bottom: 1.375rem;
+$border-color: #09384E;
+
+// Control
+$input-color: #2D2D2D;
+$input-bg-color: $white;
+
+$input-padding-y: .5rem;
+$input-padding-x: .75rem;
+
+$input-border-width: 1px;
+$input-border-style: solid;
+$input-border-color: #CFD0D0;
+$input-border-color-hover: darken($input-border-color, 15%);
+
+$input-border-radius: 0;
+
+$input-font-size: 1rem;
+$input-font-weight: $font-weight-regular;
+
+$input-line-height: 1.4;
+
+
+// Label
+$input-label-color: $input-color;
+
+$input-label-margin-bottom: .25rem;
+
+$input-label-font-size: .9375rem;
+$input-label-font-weight: $font-weight-semiBold;
+
+$color-error: #D0021B;
+
+.form {
+
+  &-group {
+    position: relative;
+    margin-bottom: $input-group-margin-bottom;
+  }
+
+  &-control {
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    border-width: $input-border-width;
+    border-style: $input-border-style;
+    border-color: $input-border-color;
+    color: $input-color;
+    line-height: $input-line-height;
+    font-size: $input-font-size;
+    font-family: $font-family-base;
+    // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214.
+    background-color: $input-bg-color;
+    background-image: none;
+    background-clip: padding-box;
+
+    &:hover,
+    &:focus {
+      border-color: $input-border-color-hover;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    .has-feedback.has-error & {
+      border-color: $color-error;
+    }
+
+  }
+
+  &-label {
+    display: block;
+    margin-bottom: $input-label-margin-bottom;
+    color: $input-label-color;
+    font-size: $input-label-font-size;
+    font-family: $input-label-font-weight;
+  }
+
+}
