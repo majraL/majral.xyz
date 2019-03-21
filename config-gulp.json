@@ -1,0 +1,11 @@
+{
+  "scssSrcPath": "src/scss/**/*.scss",
+  "cssSrcPath": "src/css/app/app.css",
+  "jsSrcPath": "src/scripts/**/*.js",
+  "imgSrcPath": "src/media/img",
+  "cssDistPath": "build/css",
+  "jsDistPath": "build/css",
+  "imgDistPath": "./dist/img",
+  "htmlSrcPath": "src/html/app/pages/*.html",
+  "browserList": "> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1"
+}

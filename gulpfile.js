@@ -15,6 +15,9 @@ const replace = require('gulp-replace');
 const del = require('del');
 const sprite = require('gulp-svg-sprite');
 const tinypng = require('gulp-tinypng-compress');
+// const gulpDeployFtp = require("gulp-deploy-ftp");
+var gutil = require('gulp-util');
+var ftp = require('vinyl-ftp');
 
 
 //---------------------------------------------------Node dir-----------------------------------------------------------
@@ -80,7 +83,6 @@ gulp.task('js', function () {
     // path.npm + 'jquery/dist/jquery.js',
     'src/scripts/**/*.js'
   ])
-
     .pipe(babel({ compact: false }))
     .pipe(concat('app.js'))
     .pipe(gulp.dest('src/js/app/'))
@@ -95,9 +97,9 @@ gulp.task('js', function () {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-//------------------------------------------------------TinyPNG task----------------------------------------------------
-gulp.task('png', function () {
-  return gulp.src(['src/media/img/*.png', 'src/media/img/*.jpg'])
+//------------------------------------------------------TinyPNG img task------------------------------------------------
+gulp.task('img', function () {
+  return gulp.src('src/media/img')
     .pipe(tinypng({
       key: 'qvtT2BPQtOvhT-97B47ELxqa-Lcq5FUO',
       sigFile: 'images/.tinypng-sigs',
@@ -140,33 +142,56 @@ gulp.task('svg', ['sprite'], function () {
 
 
 //--------------------------------------Compress all build files to build.zip-------------------------------------------
-gulp.task('zip', function () {
-  return gulp.src('build/**/*.*')
-    .pipe(zip('build.zip'))
-    .pipe(gulp.dest('./'));
+gulp.task("zip", function () {
+  return gulp
+    .src("build/**/*.*")
+    .pipe(zip("build.zip"))
+    .pipe(gulp.dest("./"));
 });
 //----------------------------------------------------------------------------------------------------------------------
 
 
-gulp.task('watch', function () {
-  gulp.watch(['src/media/**/*.svg', '!src/media/sprite/*.svg'], ['svg']).on('change', browserSync.reload);
-  gulp.watch('src/media/**/*.png', ['png']).on('change', browserSync.reload);
-  gulp.watch('src/scripts/**/*.js', ['js']).on('change', browserSync.reload);
-  gulp.watch('src/scss/**/*.scss', ['css']).on('change', browserSync.reload);
-  gulp.watch('src/html/**/*.html', ['html']).on('change', browserSync.reload);
+//-------------------------------------------------Gulp.js deploy task--------------------------------------------------
+gulp.task(
+  "deploy",
+  function(app) {
+    var conn = ftp.create({
+      host: "ftp.majral.xyz",
+      user: "majralxy",
+      password: "YS3!f491gGBb#y",
+      port: 23131,
+      parallel: 10
+    });
+    var globs = ["build/**/*"];
+    return gulp
+      .src(globs, { base: "./build/", buffer: false })
+      .pipe(conn.newer("/public_html")) // only upload newer files
+      .pipe(conn.dest("/public_html"));
+  }
+);
+//----------------------------------------------------------------------------------------------------------------------
+
+gulp.task("watch", function () {
+  gulp
+    .watch(["src/media/**/*.svg", "!src/media/sprite/*.svg"], ["svg"])
+    .on("change", browserSync.reload);
+  gulp.watch("src/media/**/*.png", ["png"]).on("change", browserSync.reload);
+  gulp.watch("src/scripts/**/*.js", ["js"]).on("change", browserSync.reload);
+  gulp.watch("src/scss/**/*.scss", ["css"]).on("change", browserSync.reload);
+  gulp.watch("src/html/**/*.html", ["html"]).on("change", browserSync.reload);
 });
 
 
 //-------------------------------------------CSS minify for build-------------------------------------------------------
-gulp.task('clean', function () {
-  del(['build']);
+gulp.task("clean", function () {
+  del(["build"]);
 });
 //----------------------------------------------------------------------------------------------------------------------
 
 
 //-------------------------------------------------Gulp.js build task---------------------------------------------------
 gulp.task('app', [
-  'png',
+  'img',
   'svg',
   'css',
   'js',
