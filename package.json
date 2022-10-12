@@ -18,7 +18,7 @@
     "gulp-replace": "1.0.0",
     "gulp-sass": "4.0.1",
     "gulp-strip-css-comments": "2.0.0",
-    "gulp-svg-sprite": "1.4.0",
+    "gulp-svg-sprite": "1.5.0",
     "gulp-svgmin": "2.0.0",
     "gulp-tinypng": "1.0.2",
     "gulp-tinypng-compress": "1.2.1",
